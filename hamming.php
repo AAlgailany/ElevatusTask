@@ -6,7 +6,10 @@ class hamming
     */
     public function hamming_dis($string1, $string2)
     {
+        // This section to check Strings length are equals or not 
+        // And add pads to the end of string
         if (strlen($string1) != strlen($string2)) {
+            
             if (strlen($string1) > strlen($string2)) {
                 $diffrence = strlen($string1) - strlen($string2);
                 for ($i = 0; $i <= $diffrence; $i++) {
@@ -22,15 +25,19 @@ class hamming
             return $this->hamming_dis($string1, $string2);
         }
 
-
+        // Define distance var
         $distance = 0;
+
+        // Make inputs array
         $s1arr = str_split($string1);
         $s2arr = str_split($string2);
 
+        // Calulate the distance
         for ($i = 0; $i <= strlen($string1); $i++) {
             if ($s1arr[$i] != $s2arr[$i])
                 $distance++;
         }
+        // Set return value
         return $distance;
     }
 }
